@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Big Sponsor</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/javascript" src="bigSponsor.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- jquery local -->
+    <script src="lib/jquery/jquery-1.11.2.min.js"></script>
+    <!-- jquery mobile local-->
+    <script src="lib/jqm/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+    <script src="lib/jqm/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- css from demo -->
+    <link href="css/themes/1/conf-room1.min.css" rel="stylesheet" />
+    <link href="css/themes/1/jquery.mobile.icons.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link rel="stylesheet" href="lib/jqm/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+
+
+    <!-- jquery CDN -->
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <!-- jquery mobile CDN -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+
+</head>
+<body>
+    <div data-role="page" id="foo">
+        <div data-role="header" data-theme="b">
+			<img src="img/twopeople.png" height="40" width="40" style="padding-left:45%; padding-top:1%;">
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+            <h2 class="mc-text-center">Welcome!</h2>
+            <p class="mc-top-margin-1-5"><b>Existing Users</b></p>
+            <a href="sign-in.html" class="ui-btn ui-btn-b ui-corner-all">Sign In</a>
+            <p class="mc-top-margin-1-5"><b>Don't have an account?</b></p>
+            <a href="sign-up.html" class="ui-btn ui-btn-b ui-corner-all">Sign Up</a>
+            <p></p>
+
+            <!-- Navigate to the second page -->
+            <!--<p>View internal page called <a href="#bar">bar</a></p>-->
+
+
+        </div><!-- /content -->
+    </div><!-- /page -->
+
+    <!-- second page navigation -->
+    <div data-role="page" id="bar">
+
+        <div data-role="header">
+            <h1>Bar</h1>
+        </div><!-- /header -->
+
+        <div role="main" class="ui-content">
+            <p>I'm the second in the source order so I'm hidden when the page loads. I'm just shown if a link that references my id is beeing clicked.</p>
+            <p><a href="#foo">Back to foo</a></p>
+        </div><!-- /content -->
+
+        <div data-role="footer">
+            <h4>Page Footer</h4>
+        </div><!-- /footer -->
+    </div><!-- /page -->
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+
+"points":[
+    {"id":1,"lat":44.962584,"lon":-93.235521,"meetLoc":"Bethany Lutheran Church","meetType":"AA Meeting","meeting":"Sun 7:00am"},
+    {"id":2,"lat":44.960055,"lon":-93.276926,"meetLoc":"Alano Society","meetType":"AA Meeting","meeting":"Sun 9:00am"},
+    {"id":3,"lat":44.969820,"lon":-93.276358,"meetLoc":"Wesley Methodist Church","meetType":"AA Meeting","meeting":"Sun 12:00pm"},
+    {"id":4,"lat":44.898221,"lon":-93.278131,"meetLoc":"The Mens Center","meetType":"AA Meeting","meeting":"Sun 12:00pm"},
+    {"id":5,"lat":44.990352,"lon":-93.303026,"meetLoc":"Upstairs of Animal Hospital","meetType":"AA Meeting","meeting":"Mon 7:00pm"},
+    {"id":6,"lat":44.969820,"lon":-93.276358,"meetLoc":"1st Baptist Church","meetType":"AA Meeting","meeting":"Mon 5:45pm"},
+    {"id":7,"lat":44.967819,"lon":-93.283775,"meetLoc":"2400 Club","meetType":"AA Meeting","meeting":"Tues 6:30pm"},
+    {"id":8,"lat":44.953270,"lon":-93.287897,"meetLoc":"Dunn Bros","meetType":"AA Meeting","meeting":"Wed 6:45pm"}
+]
+
+
+}

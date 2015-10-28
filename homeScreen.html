@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Big Sponsor</title>
+    <script type="text/javascript" src="bigSponsor.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- jquery local -->
+    <script src="lib/jquery/jquery-1.11.2.min.js"></script>
+    <!-- jquery mobile local-->
+    <script src="lib/jqm/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+    <script src="lib/jqm/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- css from demo -->
+    <link href="css/themes/1/conf-room1.min.css" rel="stylesheet" />
+    <link href="css/themes/1/jquery.mobile.icons.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link rel="stylesheet" href="lib/jqm/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+
+    <!-- jquery CDN -->
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <!-- jquery mobile CDN -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- This function sends a popup message after 12 seconds-->
+    <script type="text/javascript">
+        function notify() {
+            var message = "Alert" + "<br>" + "You have been in a hot spot for 20 minutes" + "<br>" +"Your Sponsor has been notified" + "<br>" + "<a href='#' data-role='button'>Ok</a>" + "  " + "<a href='#' data-role='button'>Contact Sponsor</a>";
+            var id = "popupid";
+            try {$("#"+id).remove();} catch(e) {}
+            var popup = document.createElement('div');
+            popup.setAttribute("data-role", "popup");
+            popup.setAttribute("data-transition", "pop");
+            popup.setAttribute("data-theme", "a");
+            popup.setAttribute("data-overlay-theme", "c");
+            popup.setAttribute("id", id);
+            popup.innerHTML = "<p style='margin:1em 2em 1em 2em'>" + message + "</p>";
+            $('div[data-role="content"]').append(popup);
+            $("#"+id).popup();
+            $("#"+id).popup("open");
+        }
+
+        setTimeout(function() {
+            notify();
+        }, 12000);
+
+    </script>
+</head>
+<body>
+<div data-role="page" class="ui-responsive-panel">
+
+    <div data-role="header" data-theme="b">
+        <img src="img/twopeople.png" height="40" width="40" style="padding-left:45%; padding-top:1%;">
+		<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+        <a href="#add-form" data-icon="gear" data-iconpos="notext">Add</a>
+    </div><!-- /header -->
+    <div data-role="content">
+	
+		<h2>Quotes from Family</h2>	
+		<ul data-role= "listview" data-inset="true">
+			<li a style="white-space: pre-wrap;">"I love having my big sister again." -Lil Sis</li>
+			<li a style="white-space: pre-wrap;">"To My Daughter, you have grown up so much and gone through even more, but I still see my curious, tenacious, and emphatic little girl. Each day I see you I see all the different things you can be, and I'm glad you are starting to see you the way I do. Love, Dad"</li>		
+			<li a style="white-space: pre-wrap;">"I've never been more proud of you than the moment you decided to make this change. You are doing what I have always been too afraid to do." -Mom</li>		
+		</ul>
+		
+		<h2>Quotes from Others</h2>
+		<ul data-role="listview" data-inset="true">
+			<li a style="white-space: pre-wrap;">"You are not stuck where you are unless you decide to be." -Wayne W. Dyer</li>		
+			<li a style="white-space: pre-wrap;">"The difference between try and triumph is a little umph." -Marvin Philips</li>
+			<li a style="white-space: pre-wrap;">"You're braver than you believe, and stronger than you seem, and smarter than you think." -A.A. Milne/ Christopher Robin</li>
+		</ul>
+	</div><!-- /content -->
+
+    <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
+
+        <ul data-role="listview" data-theme="b" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
+            <li data-icon="delete" style="background-color:#111;">
+                <a href="#" data-rel="close" >Close menu</a>
+            </li>
+            <li>
+                <a href="maps.html" rel="external">Find a Meeting</a>
+            </li>
+            <li>
+                <a href="chat.html">Chat</a>
+            </li>
+
+        </ul>
+
+        <!-- panel content goes here -->
+    </div><!-- /panel -->
+
+    <div data-role="panel" data-position="right" data-position-fixed="false" data-display="overlay" id="add-form" data-theme="b">
+
+        <!-- TODO: ADD GEAR PANEL CONTENT -->
+<a href="sign-up.html" data-role="button" data-icon="info">Account Settings</a>
+<a href="sign-in.html" data-role="button" data-icon="back">Sign Out</a>
+<a href="sign-in.html" data-role="button" data-icon="delete">Delete Account</a>
+<a href="homeScreen.html" data-role="button" data-icon="refresh">Refresh</a>
+
+        <!-- panel content goes here -->
+    </div><!-- /panel -->
+
+    <!-- TODO: Add Home Page Content -->
+
+</div><!-- /page -->
+</body>
+</html>

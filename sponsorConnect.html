@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Big Sponsor</title>
+    <script type="text/javascript" src="bigSponsor.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- jquery local -->
+    <script src="lib/jquery/jquery-1.11.2.min.js"></script>
+    <!-- jquery mobile local-->
+    <script src="lib/jqm/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+    <script src="lib/jqm/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- css from demo -->
+    <link href="css/themes/1/conf-room1.min.css" rel="stylesheet" />
+    <link href="css/themes/1/jquery.mobile.icons.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link rel="stylesheet" href="lib/jqm/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+
+    <!-- jquery CDN -->
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <!-- jquery mobile CDN -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- This function sends a popup message after 12 seconds-->
+
+</head>
+<body>
+<div data-role="page" class="ui-responsive-panel">
+
+    <div data-role="header" data-theme="b">
+        <img src="img/twopeople.png" height="40" width="40" style="padding-left:45%; padding-top:1%;">
+        <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+        <a href="#add-form" data-icon="gear" data-iconpos="notext">Add</a>
+    </div><!-- /header -->
+    <div data-role="content">
+
+        <h2 align="center">Connect To Your Sponsor</h2>
+        <p align="center">Enter the user name:</p>
+        <p><input type="text" ></p>
+        <a href="homeScreen.html" data-role="button" data-theme="a" >Submit</a>
+
+    </div><!-- /content -->
+
+    <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
+
+        <ul data-role="listview" data-theme="b" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
+            <li data-icon="delete" style="background-color:#111;">
+                <a href="#" data-rel="close" >Close menu</a>
+            </li>
+            <li>
+                <a href="maps.html" rel="external">Find a Meeting</a>
+            </li>
+            <li>
+                <a href="chat.html">Chat</a>
+            </li>
+
+        </ul>
+
+        <!-- panel content goes here -->
+    </div><!-- /panel -->
+
+    <div data-role="panel" data-position="right" data-position-fixed="false" data-display="overlay" id="add-form" data-theme="b">
+
+        <!-- TODO: ADD GEAR PANEL CONTENT -->
+        <a href="sign-up.html" data-role="button" data-icon="info">Account Settings</a>
+        <a href="sign-in.html" data-role="button" data-icon="back">Sign Out</a>
+        <a href="sign-in.html" data-role="button" data-icon="delete">Delete Account</a>
+        <a href="homeScreen.html" data-role="button" data-icon="refresh">Refresh</a>
+
+        <!-- panel content goes here -->
+    </div><!-- /panel -->
+
+    <!-- TODO: Add Home Page Content -->
+
+</div><!-- /page -->
+</body>
+</html>

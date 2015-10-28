@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Big Sponsor</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+    <style>
+        #content {
+            padding: 0%;
+			position : absolute !important;
+            top : 8% !important;
+            right : 0;
+            bottom : 0% !important;
+            left : 0 !important;
+        }
+
+    </style>
+
+    <!-- Google Maps CDN -->
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- jquery local -->
+    <script src="lib/jquery/jquery-1.11.2.min.js"></script>
+    <!-- jquery mobile local-->
+    <script src="lib/jqm/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+    <script src="lib/jqm/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- css from demo -->
+    <link href="css/themes/1/conf-room1.min.css" rel="stylesheet" />
+    <link href="css/themes/1/jquery.mobile.icons.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link rel="stylesheet" href="lib/jqm/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+
+    <!-- jquery CDN -->
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <!-- jquery mobile CDN -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+
+    <script type="text/javascript">
+        var map;
+      //  $(document).on('pageshow', '#index', function (e, data) {
+        function initialize() {
+
+          //      setTimeout(function () {
+                // This is the minimum zoom level that we'll allow
+            var minZoomLevel = 14;
+
+            var uofm = new google.maps.LatLng(44.974548, -93.232232);
+
+            var mapOptions = {
+                zoom: minZoomLevel,
+                center: uofm,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+            <!-- Label the initial center of the map with a marker -->
+            var marker = new google.maps.Marker({
+                position: map.getCenter(),
+                map: map,
+                title: 'Click to zoom'
+            });
+
+            <!-- This loads the users location on page load -->
+//            if (navigator.geolocation) {
+//                navigator.geolocation.getCurrentPosition(function (position) {
+//                    initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+//                    map.setCenter(initialLocation);
+//                });
+//            }
+
+            <!-- Json function used to get meeting location data  -->
+            $.getJSON('json/map_points.json', function(data) {
+                $.each( data.points, function(i, value) {
+
+                    var myLatlng = new google.maps.LatLng(value.lat, value.lon);
+                   // alert(myLatlng);
+                    var marker = new google.maps.Marker({
+                        position: myLatlng,
+                        map: map,
+                        icon: 'img/AAv1.png',
+                        title: value.meetLoc+"\n"+value.meetType+"\n"+value.meeting
+                    });
+
+                });
+            });
+
+            //     }, 100);
+        } // initialize
+
+        // trying to get the map to load on initial acces without using rel
+      google.maps.event.addDomListener(window, 'load', initialize);
+     //   });
+
+
+      function notify(message) {
+          var id = "popupid";
+          try {$("#"+id).remove();} catch(e) {}
+          var popup = document.createElement('div');
+          popup.setAttribute("data-role", "popup");
+          popup.setAttribute("data-transition", "pop");
+          popup.setAttribute("data-theme", "a");
+          popup.setAttribute("data-overlay-theme", "c");
+          popup.setAttribute("id", id);
+          popup.innerHTML = "<p style='margin:1em 2em 1em 2em'>" + message + "</p>";
+          $('div[data-role="content"]').append(popup);
+          $("#"+id).popup();
+          $("#"+id).popup("open");
+      };
+
+      function updatePos(){
+          if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                    map.setCenter(initialLocation);
+                });
+            }
+      };
+
+      function setHotspot(){
+          var marker = new google.maps.Marker({
+              position: map.getCenter(),
+              map: map,
+              icon: 'img/warning-icon.png',
+              title: 'Hotspot'
+          });
+      };
+
+      function setFavorite(){
+          var marker = new google.maps.Marker({
+              position: map.getCenter(),
+              map: map,
+              icon: 'img/yellowStar.png',
+              title: 'Hotspot'
+          });
+      } ;
+
+    </script>
+</head>
+<body>
+<div data-role="page" id="index">
+
+    <div data-role="header" data-theme="b">
+        <img src="img/twopeople.png" height="35" width="35" style="padding-left:45%; padding-top:1%;">
+        <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+        <a href="#add-form" data-icon="gear" data-iconpos="notext">Add</a>
+    </div>
+
+    <!-- Hamburger menu content -->
+    <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
+        <ul data-role="listview" data-theme="b" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
+            <li data-icon="delete" style="background-color:#111;">
+                <a href="#" data-rel="close">Close menu</a>
+            </li>
+            <li>
+                <a href="homeScreen.html">Home</a>
+            </li>
+            <li>
+                <a href="chat.html">Chat</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Account menu content -->
+    <div data-role="panel" data-position="right" data-position-fixed="false" data-display="overlay" id="add-form" data-theme="b">
+        <a href="sign-up.html" data-role="button" data-icon="info">Account Settings</a>
+		<a href="sign-in.html" data-role="button" data-icon="back">Sign Out</a>
+		<a href="sign-in.html" data-role="button" data-icon="delete">Delete Account</a>
+		<a href="homeScreen.html" data-role="button" data-icon="refresh">Refresh</a>
+    </div>
+
+    <div data-role="content" id="content">
+        <!--<input id="pac-input" class="controls" type="text" placeholder="Search Box">-->
+        <div id="map_canvas" style="height:100%;"></div>
+    </div>
+
+    <div data-theme="b" data-role="footer" data-position="fixed">
+        <h3>
+            <a href="#" data-role="button" data-icon="home" data-iconpos="notext" onclick="updatePos()" style="margin-right:16px;">Center</a>
+            <a href="#" data-role="button" data-icon="star" data-iconpos="notext" onclick="notify('Favorite Saved'); setFavorite()" style="margin-right:16px;" >Favorite</a>
+            <a href="#" data-role="button" data-icon="alert" data-iconpos="notext" onclick="notify('Hotspot Saved'); setHotspot()" >Hotspot</a>
+        </h3>
+    </div>
+</div>
+</body>
+</html> 
